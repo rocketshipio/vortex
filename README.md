@@ -154,3 +154,24 @@ Consuming it looks like this:
 ```
 
 You get to build the intent of your form in a view. Then each field is wrapped in a component, which you can customize by subclasses.
+
+Here's the structure of the view files. You have it all in one place.
+
+<img width="373" alt="Screen Shot 2022-06-07 at 00 14 38" src="https://user-images.githubusercontent.com/4628/172319112-64d83c01-e955-430a-877e-7c8048c4aee7.png">
+
+The awesome part is how you can put whatever in each form field component. It's like this for a text field:
+
+```slim
+label.block.text-gray-700.dark:text-gray-200.font-bold.mb-2 for=id
+  = label
+
+input.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.mb-1.leading-tight.focus:outline-none.focus:shadow-outline.dark:bg-neutral-800.dark:text-neutral-200 class=classes type=type value=value name=name id=id /
+
+-if invalid?
+  p.text-red-600.text-sm.my-1=error_message
+
+-if hint
+  p.hint= hint
+```
+
+It's a lot, but you get super fine grain control of your tailwindcss utilitly libraries.
